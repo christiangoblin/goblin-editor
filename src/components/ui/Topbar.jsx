@@ -27,12 +27,35 @@ export default function Topbar() {
       className="flex items-center justify-between px-4 flex-shrink-0 border-b"
       style={{ height: 48, background: 'var(--surface)', borderColor: 'var(--border)' }}
     >
-      {/* Brand */}
+      {/* Brand + Site Nav */}
       <div className="flex items-center gap-3">
         <Scissors size={18} style={{ color: 'var(--gold)' }} />
-        <span className="font-cinzel text-sm font-semibold tracking-widest" style={{ color: 'var(--gold)' }}>
+        <a
+          href="https://christiangoblin.com"
+          className="font-cinzel text-sm font-semibold tracking-widest"
+          style={{ color: 'var(--gold)', textDecoration: 'none' }}
+        >
           GOBLIN EDITOR
-        </span>
+        </a>
+        <div className="w-px" style={{ height: 16, background: 'var(--border)', marginLeft: 4 }} />
+        {[
+          { label: 'Home',          href: 'https://christiangoblin.com' },
+          { label: 'Mental Health', href: 'https://christiangoblin.com/mental/' },
+          { label: 'Cybersecurity', href: 'https://christiangoblin.com/cyber/' },
+          { label: 'Resume',        href: 'https://christiangoblin.com/Resume/' },
+          { label: 'Cover Letter',  href: 'https://christiangoblin.com/cover/' },
+          { label: 'ATS Checker',   href: 'https://christiangoblin.com/ats/' },
+          { label: 'Links',         href: 'https://christiangoblin.com/links/' },
+        ].map(({ label, href }) => (
+          <a
+            key={href}
+            href={href}
+            className="text-xs transition-colors hover:opacity-100"
+            style={{ color: 'var(--muted)', textDecoration: 'none', opacity: 0.75, whiteSpace: 'nowrap' }}
+          >
+            {label}
+          </a>
+        ))}
       </div>
 
       {/* Project name */}
